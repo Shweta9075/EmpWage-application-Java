@@ -9,6 +9,9 @@ public class EmpWageUsingMethod {
     int partTimeWage;
     int num_Of_Working_Days = 5;
     int totalEmpWage = 0;
+    int max_Hrs_In_Month = 10;
+    int totalEmpHrs = 0;
+    int totalWorkingDays = 0;
     int empcheck =(int) Math.floor(Math.random() * 10) % 2;
     void empPresent() {
         if (empcheck == is_Full_Time)
@@ -53,6 +56,26 @@ public class EmpWageUsingMethod {
                 System.out.println("Employee wage : " + empWage);
             }
             System.out.println("Total Employee Wage : " + totalEmpWage);
+        }
+        void maxMonthEmpWage(){
+        while (totalEmpHrs <= max_Hrs_In_Month && totalWorkingDays < num_Of_Working_Days){
+            totalWorkingDays++;
+            int empcheck = (int) Math.floor(Math.random() *10) %3;
+            switch (empcheck){
+                case is_Part_Time:
+                    empHrs = 4;
+                    break;
+                case is_Full_Time:
+                    empHrs = 8;
+                    break;
+                default:
+                    empHrs = 0;
+            }
+            totalEmpHrs = totalEmpHrs + empHrs;
+            System.out.println("Day#:" +totalWorkingDays + "Emp Hrs: "+empHrs);
+        }
+        int totalEmpWage = totalEmpHrs * empWagePerHrs;
+            System.out.println("Total employee Wage :"+ totalEmpWage);
         }
 
         public static void main (String[]args){
