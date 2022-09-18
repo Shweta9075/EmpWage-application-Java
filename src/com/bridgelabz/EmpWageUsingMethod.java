@@ -7,6 +7,8 @@ public class EmpWageUsingMethod {
     int empHrs;
     int empWage;
     int partTimeWage;
+    int num_Of_Working_Days = 5;
+    int totalEmpWage = 0;
     int empcheck =(int) Math.floor(Math.random() * 10) % 2;
     void empPresent() {
         if (empcheck == is_Full_Time)
@@ -34,17 +36,23 @@ public class EmpWageUsingMethod {
                 partTimeWage = empHrs * empWagePerHrs;
                 System.out.println("Part Time employee wage = " + partTimeWage);
         }
-        void totalEmpWage(){
-        switch (empcheck){
-            case is_Full_Time :
-                empHrs = 8;
-                break;
-            case is_Part_Time:
-                empHrs = 4;
-                break;
-            default:
-                empHrs = 0;
-        }
+        void totalEmpWage() {
+            for (int i = 0; i <= num_Of_Working_Days; i++) {
+                switch (empcheck) {
+                    case is_Full_Time:
+                        empHrs = 8;
+                        break;
+                    case is_Part_Time:
+                        empHrs = 4;
+                        break;
+                    default:
+                        empHrs = 0;
+                }
+                empWage = empHrs * empWagePerHrs;
+                totalEmpWage = totalEmpWage + empWage;
+                System.out.println("Employee wage : " + empWage);
+            }
+            System.out.println("Total Employee Wage : " + totalEmpWage);
         }
 
         public static void main (String[]args){
