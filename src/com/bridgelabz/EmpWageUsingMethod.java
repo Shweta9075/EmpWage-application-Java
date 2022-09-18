@@ -1,13 +1,13 @@
 package com.bridgelabz;
 
 public class EmpWageUsingMethod {
-    int is_Full_Time = 1;    //Instance variables
-    int is_Part_Time = 2;
+   public static final int is_Full_Time = 1;    //Instance variables
+    public static final int is_Part_Time = 2;
     int empWagePerHrs = 20;
     int empHrs;
     int empWage;
     int partTimeWage;
-    double empcheck = Math.floor(Math.random() * 10) % 2;
+    int empcheck =(int) Math.floor(Math.random() * 10) % 2;
     void empPresent() {
         if (empcheck == is_Full_Time)
             System.out.println("Employee is present.");
@@ -34,12 +34,25 @@ public class EmpWageUsingMethod {
                 partTimeWage = empHrs * empWagePerHrs;
                 System.out.println("Part Time employee wage = " + partTimeWage);
         }
+        void totalEmpWage(){
+        switch (empcheck){
+            case is_Full_Time :
+                empHrs = 8;
+                break;
+            case is_Part_Time:
+                empHrs = 4;
+                break;
+            default:
+                empHrs = 0;
+        }
+        }
 
         public static void main (String[]args){
         EmpWageUsingMethod emp = new EmpWageUsingMethod();
           emp.empPresent();
           emp.empWadge();
           emp.empPartTime();
+          emp.totalEmpWage();
         }
     }
 
